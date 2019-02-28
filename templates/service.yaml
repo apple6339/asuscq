@@ -30,17 +30,17 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: {{ .Values.rabbitmqManagerPort }}
+      port: 15672
       hostPort: 32123
       targetPort: http
     - name: amqp
       protocol: TCP
-      port: {{ .Values.rabbitmqNodePort }}
+      port: 5672
       hostPort: 32122
       targetPort: amqp
     - name: epmd
       protocol: TCP
-      port: {{ .Values.rabbitmqEpmdPort }}
+      port: 4369
       hostPort: 32121
       targetPort: epmd
     {{- if .Values.rabbitmqSTOMPPlugin.enabled }}
