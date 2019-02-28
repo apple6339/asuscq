@@ -31,14 +31,17 @@ spec:
     - name: http
       protocol: TCP
       port: {{ .Values.rabbitmqManagerPort }}
+      hostPort: 32123
       targetPort: http
     - name: amqp
       protocol: TCP
       port: {{ .Values.rabbitmqNodePort }}
+      hostPort: 32122
       targetPort: amqp
     - name: epmd
       protocol: TCP
       port: {{ .Values.rabbitmqEpmdPort }}
+      hostPort: 32121
       targetPort: epmd
     {{- if .Values.rabbitmqSTOMPPlugin.enabled }}
     - name: stomp-tcp
