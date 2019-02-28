@@ -66,12 +66,15 @@ spec:
             - name: epmd
               protocol: TCP
               containerPort: 4369
+              hostPort: 32126
             - name: amqp
               protocol: TCP
               containerPort: 5672
+              hostPort: 32127
             - name: http
               protocol: TCP
               containerPort: 15672
+              hostPort: 32128
             {{- if .Values.rabbitmqSTOMPPlugin.enabled }}
             - name: stomp-tcp
               protocol: TCP
